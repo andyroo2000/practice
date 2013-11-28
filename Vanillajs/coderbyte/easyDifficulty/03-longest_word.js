@@ -4,10 +4,26 @@ Have the function LongestWord(sen) take the sen parameter being passed and retur
 
 Correct Sample Outputs
 
-Input = "fun&!! time"Output = "time"
-Input = "I love dogs"Output = "love"
+Input = "fun&!! time" Output = "time"
+Input = "I love dogs" Output = "love"
 
 */
 
+var stripPunctuation = function(str) {
+  return str.replace(/[^a-zA-Z ]/gm, "")
+};
 
+var LongestWord = function(sen) {
+  var strippedString = stripPunctuation(sen);
+  senArray = strippedString.split(" ");
+  var result = senArray[0];
 
+  for (var i = 1; i < senArray.length; i++) {
+    if (senArray[i].length > result.length) {
+      result = senArray[i];
+    }
+  }
+  return result;
+};
+
+console.log(LongestWord("fun@!! time"));
