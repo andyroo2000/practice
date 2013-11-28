@@ -1,0 +1,23 @@
+<body>
+  {{> list}}
+</body>
+
+<template name="list">
+  <input type="text" id="text" />
+  <ul>
+    {{#each items}}
+      {{> item}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="item">
+  <li>
+    {{this}}
+    {{>delete}}
+  </li>
+</template>
+
+<template name="delete">
+  <button id="remove">remove</button>
+</template>

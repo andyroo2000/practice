@@ -1,0 +1,11 @@
+h1 Hello Express
+h2= title
+
+- var users = [ { name: "Joe", email: "joe@gmail.com" }, { name: "Jill", email: "jill@gmail.com" } ];
+
+mixin userLi(user)
+  li #{user.name} &lt;#{user.email}>
+
+ul
+  each user, i in users
+    mixin userLi(user)
