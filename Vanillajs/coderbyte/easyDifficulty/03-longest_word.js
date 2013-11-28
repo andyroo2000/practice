@@ -15,7 +15,7 @@ var stripPunctuation = function(str) {
 
 var LongestWord = function(sen) {
   var strippedString = stripPunctuation(sen);
-  senArray = strippedString.split(" ");
+  var senArray = strippedString.split(" ");
   var result = senArray[0];
 
   for (var i = 1; i < senArray.length; i++) {
@@ -27,3 +27,4 @@ var LongestWord = function(sen) {
 };
 
 console.log(LongestWord("fun@!! time"));
+console.log(LongestWord("I love dogs"));
