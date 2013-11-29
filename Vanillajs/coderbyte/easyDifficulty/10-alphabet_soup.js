@@ -8,5 +8,10 @@ Input = "hooplah"    Output = "ahhloop"
 
 */
 
+var AlphabetSoup = function(str) {
+  strArray = str.split("");
+  return strArray.sort().join("");
+};
 
-
+console.log(AlphabetSoup("coderbyte"));
+console.log(AlphabetSoup("hooplah"));
