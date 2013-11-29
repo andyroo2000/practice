@@ -8,6 +8,10 @@ Input = "one 22 three"  Output = 3
 
 */
 
+var WordCount = function(str) {
+  return str.split(" ").length;
+};
 
-
-
+console.log(WordCount("Hello World"));               // 2
+console.log(WordCount("one 22 three"));              // 3
+console.log(WordCount("Never eat shredded wheat"));  // 4
