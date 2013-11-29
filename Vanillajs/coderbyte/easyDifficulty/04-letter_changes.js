@@ -16,8 +16,6 @@ var isVowel = function(letter) {
 };
 
 var capitalizeVowels = function(str) {
-  // var strArray = str.split("");
-
   for (var i = 0; i < str.length; i++) {
     if(isVowel(str[i])) {
       str[i] = str[i].toUpperCase();
