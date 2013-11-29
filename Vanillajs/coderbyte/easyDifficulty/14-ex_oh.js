@@ -8,5 +8,23 @@ Input = "x"       Output = "false"
 
 */
 
+var ExOh = function(str) {
+  xTotal = 0;
+  yTotal = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (str[i] === "x") {
+      xTotal++;
+    } else {
+      yTotal++;
+    }
+  }
+  if (xTotal === yTotal) {
+    return true;
+  } else {
+    return false;
+  }
+};
 
-
+console.log(ExOh("xooxxo"));       // true
+console.log(ExOh("x"));            // false
+console.log(ExOh("xooxxxxooxo"));  // false
