@@ -8,5 +8,11 @@ Input = 45   Output = "0:45"
 
 */
 
+var TimeConvert = function(num) {
+  var hour = Math.floor(num / 60);
+  var minutes = num % 60;
+  return hour + ":" + minutes;
+};
 
-
+console.log(TimeConvert(126));
+console.log(TimeConvert(45));
