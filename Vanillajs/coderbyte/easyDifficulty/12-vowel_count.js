@@ -9,6 +9,16 @@ Input = "coderbyte"  Output = 3
 
 */
 
+var VowelCount = function(str) {
+  var vowels = "aeiou";
+  var result = 0;
+  for (var i = 0; i < str.length; i++) {
+    if (vowels.indexOf(str[i]) !== -1) {
+      result++
+    }
+  }
+  return result;
+};
 
-
-
+console.log(VowelCount("hello"));
+console.log(VowelCount("coderbyte"));
