@@ -8,5 +8,30 @@ Input = 2,4,16,24  Output = -1
 
 */
 
+var isArithmetic = function(index, array) {
+  if ((array[index + 1] - array[index]) === (array[index] - array[index - 1])) {
+    return true;
+  }
+};
 
+var isGeometric = function(index, array) {
+  if ((array[index + 1] / array[index]) === (array[index] / array[index - 1])) {
+    return true;
+  }
+}
 
+var ArithGeo = function(arr) {
+  for (var i = 1; i < arr.length - 1; i++) {
+    if (isArithmetic(i, arr)) {
+      return "Arithmetic";
+    } else if (isGeometric(i, arr)) {
+      return "Geometric";
+    }
+    return "-1";
+  }
+};
+
+console.log(ArithGeo([5, 10, 15]));         // "Arithmetic"
+console.log(ArithGeo([2, 4, 16, 24]));      // -1
+console.log(ArithGeo([2, 4, 6, 8]));        // "Arithmetic"
+console.log(ArithGeo([2, 6, 18, 54]));      // "Geometric"
