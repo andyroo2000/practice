@@ -10,38 +10,34 @@ Input = "No words"         Output = -1
 
 
 var LetterCountI = function(str) {
-  var strArr = str.split(" ");
+  var strNoPunctuation = str.replace(/[^a-z\s]/ig,"");  // strip punctuation
+  var strArr = strNoPunctuation.split(" ");
+  var result = "";
+  var resultTotal = 0;
+  var letterCountInWord = 0;
+  var countOfCurrentLetter = 0;
+
   for (var i = 0; i < strArr.length; i++) {
     // each word
-    var result = "";
-    var resultTotal = 0;
-    var letterTotal = 0;
-    var wordTotal = 0;
-          console.log(sortedWord);
-    for (var j = 0; j < sortedWord.length; j++) {
+    console.log(strArr[i]);
+    var sortedWord = strArr[i].toLowerCase().split("").sort();
+    console.log(sortedWord);
+    letterCountInWord = 0;
+
+    for (var j = 0; j < strArr[i].length; j++) {
       // each letter
-          console.log(sortedWord);
-      if (sortedWord[j] !== sortedWord[j + 1]) {
-        letterTotal++;
-        if (letterTotal >= 2) {
-          wordTotal += letterTotal;
-          letterTotal = 0;
-        } 
-      } else if (sortedWord[j] === sortedWord[j + 1]) {
-        letterTotal++;
-      } else break;
+      countOfCurrentLetter++;
+      if ((strArr[i][j] !== strArr[i][j + 1]) && countOfCurrentLetter >= 2) {
+        letterCountInWord += countOfCurrentLetter;
+        console.log("letterCountInWord: " + letterCountInWord);
+        countOfCurrentLetter = 0;
+      }
     }
-    if (wordTotal > resultTotal) {
-      resultTotal = wordTotal;
+    if (letterCountInWord > resultTotal) {
       result = strArr[i];
-      wordTotal = 0;
-    }
-    if (resultTotal > 0) {
-      return result;
-    } else {
-      return -1;
     }
   }
+  return result;
 };
 
 
