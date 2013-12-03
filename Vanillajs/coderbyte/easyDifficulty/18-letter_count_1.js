@@ -8,42 +8,41 @@ Input = "No words"         Output = -1
 
 */
 
-
 var LetterCountI = function(str) {
   var strNoPunctuation = str.replace(/[^a-z\s]/ig,"");  // strip punctuation
   var strArr = strNoPunctuation.split(" ");
-  var result = "";
   var resultTotal = 0;
   var letterCountInWord = 0;
   var countOfCurrentLetter = 0;
+  var resultIndex;
 
   for (var i = 0; i < strArr.length; i++) {
     // each word
-    console.log(strArr[i]);
     var sortedWord = strArr[i].toLowerCase().split("").sort();
-    console.log(sortedWord);
     letterCountInWord = 0;
 
-    for (var j = 0; j < strArr[i].length; j++) {
+    for (var j = 0; j < sortedWord.length; j++) {
       // each letter
       countOfCurrentLetter++;
-      if ((strArr[i][j] !== strArr[i][j + 1]) && countOfCurrentLetter >= 2) {
+      if ((sortedWord[j] !== sortedWord[j + 1]) && countOfCurrentLetter >= 2) {
         letterCountInWord += countOfCurrentLetter;
-        console.log("letterCountInWord: " + letterCountInWord);
         countOfCurrentLetter = 0;
+      }
+      if (sortedWord[j] !== sortedWord[j + 1]) {
+        countOfCurrentLetter = 0;        
       }
     }
     if (letterCountInWord > resultTotal) {
-      result = strArr[i];
+      resultTotal = letterCountInWord;
+      resultIndex = i;
     }
   }
-  return result;
+  if (resultTotal === 0) {
+    return -1;
+  } else return strArr[resultIndex];
 };
 
 
-// console.log(LetterCountI("Hello apple pie"));                   // Hello
-// console.log(LetterCountI("No words"));                          // -1
+console.log(LetterCountI("Hello apple pie"));                   // Hello
+console.log(LetterCountI("No words"));                          // -1
 console.log(LetterCountI("Today, is the greatest day ever!"));  // greatest
-
-
-
