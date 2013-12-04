@@ -8,7 +8,20 @@ Input = 6874 & num2 = 67  Output = "103"
 
 */
 
+var DivisionStringified = function(num1, num2) {
+  var unformattedResultArr =  Math.round(num1 / num2).toString().split("");
+  var length = unformattedResultArr.length;
+  if (length > 3) {
+    for (var i = length - 3; i > 0; i -= 3) {
+      unformattedResultArr.splice([i], 0, ",");
+    }
+  }
+  return unformattedResultArr.join("");
+};
 
 
-
-
+console.log(DivisionStringified(5, 2));             // 3
+console.log(DivisionStringified(2, 3));             // 1
+console.log(DivisionStringified(6874, 67));         // 103
+console.log(DivisionStringified(123456789, 10000)); // 12,345
+console.log(DivisionStringified(2000000, 1));       // 2,000,000
