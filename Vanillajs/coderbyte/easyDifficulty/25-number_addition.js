@@ -8,6 +8,23 @@ Input = "10 2One Number*1*"  Output = 13
 
 */
 
+var NumberSearch = function(str) {
+  var strArray = str.split(/[^0-9]/);
+  var sum = 0;
+  var number = 0;
+  for (var i = 0; i < strArray.length; i++) {
+    if ((/[0-9]/).test(strArray[i])) {
+      number = Number(strArray[i]);
+      sum += number;
+    }
+  }
+  return sum;
+};
 
 
+console.log(NumberSearch("88Hello 3World!"));    // 91
+console.log(NumberSearch("55Hello"));            // 55
+console.log(NumberSearch("5Hello 5"));           // 10
+console.log(NumberSearch("75Number9"));          // 84
+console.log(NumberSearch("10 2One Number*1*"));  // 13
 

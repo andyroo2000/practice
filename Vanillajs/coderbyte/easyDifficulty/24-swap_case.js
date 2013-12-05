@@ -40,5 +40,3 @@ var SwapCase = function(str) {
 console.log(SwapCase("Hello World"));  // hELLO wORLD
 console.log(SwapCase("Hello-LOL"));    // hELLO-lol
 console.log(SwapCase("Sup DUDE!!?"));  // sUP dude!!?
-
-// console.log(isLowerCase("A"));
