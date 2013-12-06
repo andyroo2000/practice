@@ -8,6 +8,34 @@ Input = "1:23am-1:08am"    Output = 1425
 
 */
 
+var CountingMinutesI = function(str) {
+  var strArray = str.split("-");
+  var time1 = strArray[0];
+  var time2 = strArray[1];
+
+  function getMinutes(time) {
+    var strArraySplit = time.split(":");
+    var multiplier = Number(strArraySplit[0]);
+    var length = time.length;
+    var amPm = (time[length - 2]);
+    var minutes = Number((strArraySplit[1]).slice(0,2));
+
+    if ((amPm === "p" ) && (multiplier !== 12)) {
+      multiplier += 12;
+    }
+    if ((amPm === "a") && (multiplier === 12)) {
+      multiplier -= 12;
+    }
+    return (multiplier * 60) + minutes;
+  }
+    if ((getMinutes(time1)) > (getMinutes(time2))) {
+      return ((24 * 60) - getMinutes(time1) + getMinutes(time2));
+    } 
+    return getMinutes(time2) - getMinutes(time1);
+};
 
 
-
+console.log(CountingMinutesI("9:00am-10:00am"));   // 60
+console.log(CountingMinutesI("1:00pm-11:00am"));   // 1320
+console.log(CountingMinutesI("12:30pm-12:00am"));  // 690
+console.log(CountingMinutesI("1:23am-1:08am"));    // 1425
