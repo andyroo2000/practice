@@ -8,6 +8,28 @@ Input = "abc","defg","z","hijk"  Output = "abc"
 
 */
 
+var ThirdGreatest = function(strArr) {
+  // var greatestLength = 0;
+  var greatest1 = "";
+  var greatest2 = "";
+  var greatest3 = "";
+  for (var i = strArr.length - 1; i >= 0; i--) {
+    if (strArr[i].length >= greatest1.length) {
+      greatest3 = greatest2;
+      greatest2 = greatest1;
+      greatest1 = strArr[i];
+    } else if (strArr[i].length >= greatest2.length) {
+      greatest3 = greatest2;
+      greatest2 = strArr[i];
+    } else if (strArr[i].length >= greatest3.length) {
+      greatest3 = strArr[i];
+    }
+  }  
+  return greatest3;
+};
 
 
-
+console.log(ThirdGreatest(["hello", "world", "before", "all"]));  // world
+console.log(ThirdGreatest(["hello", "world", "after", "all"]));   // after
+console.log(ThirdGreatest(["coder", "byte", "code"]));            // code
+console.log(ThirdGreatest(["abc", "defg", "z", "hijk"]));         // abc
