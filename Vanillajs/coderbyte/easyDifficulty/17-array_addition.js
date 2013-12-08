@@ -12,7 +12,6 @@ var ArrayAdditionI = function(arr) {
   largestNumber = arr.pop();
   return arr + ": " + largestNumber;
   for (var i = 0; i < arr.length; i++) {
-    /* arr i */
     
   }
 };
