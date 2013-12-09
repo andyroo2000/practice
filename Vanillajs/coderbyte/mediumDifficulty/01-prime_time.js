@@ -8,5 +8,29 @@ Input = 110  Output = false
 
 */
 
+var PrimeTime = function(num) {
+  if (num === 1) {
+    return true;
+  }
+  if ((num === 2) || (num % 2 === 0)) {
+    return false;
+  }
+  for (i = 3; i < num / 2; i += 2) {
+    if (num % i === 0) {
+      return false;
+    } else {
+    }
+  }
+  return true;
+};
 
+console.log(PrimeTime(19));   // true
+console.log(PrimeTime(73));   // true
+console.log(PrimeTime(127));  // true
+console.log(PrimeTime(1453)); // true
+console.log(PrimeTime(7879)); // true
+console.log(PrimeTime(7919)); // true
 
+console.log(PrimeTime(110));  // false
+console.log(PrimeTime(91));   // false
+console.log(PrimeTime(813));  // false
