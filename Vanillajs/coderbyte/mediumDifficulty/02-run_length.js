@@ -8,6 +8,21 @@ Input = "wwwbbbw"  Output = "3w3b1w"
 
 */
 
+var RunLength = function(str) {
+  var currentLetterTotal = 0;
+  var resultArray = [];
+  var currentLetterTotal = 0;
+  for (var i = 0; i < str.length; i++) {
+    currentLetterTotal++;
+    if (str[i] !== str[i + 1]) {
+      resultArray.push(currentLetterTotal + str[i]);
+      currentLetterTotal = 0;
+    }
+  }
+  return resultArray.join("");
+};
 
 
-
+console.log(RunLength("wwwggopp"));  // 3w2g1o2p
+console.log(RunLength("aabbcde"));   // 2a2b1c1d1e
+console.log(RunLength("wwwbbbw"));   // 3w3b1w
