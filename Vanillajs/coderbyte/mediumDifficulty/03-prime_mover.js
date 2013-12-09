@@ -8,5 +8,20 @@ Input = 100  Output = 541
 
 */
 
+var isPrime = function(num) {
+  if (num === 2) {
+    return true;
+  }
+  if
+};
+
+
+var PrimeMover = function(num) {
+  
+};
+
+
+console.log(PrimeMover(9));
+console.log(PrimeMover(541));
 
 
