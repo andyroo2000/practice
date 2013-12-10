@@ -12,16 +12,29 @@ var isPrime = function(num) {
   if (num === 2) {
     return true;
   }
-  if
+  if (num % 2 === 0) {
+    return false;
+  }
+  for (var i = 3; i < num / 2; i += 2) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
 };
 
 
 var PrimeMover = function(num) {
-  
+  var primeArray = [2];
+  for (var i = 3; primeArray.length < num; i += 2) {
+    if (isPrime(i)) {
+      primeArray.push(i);
+    }
+  }
+  return primeArray[primeArray.length - 1];
 };
 
 
-console.log(PrimeMover(9));
-console.log(PrimeMover(541));
-
-
+console.log(PrimeMover(9));    // 23
+console.log(PrimeMover(16));   // 53
+console.log(PrimeMover(100));  // 541

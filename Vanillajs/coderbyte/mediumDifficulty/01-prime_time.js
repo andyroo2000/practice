@@ -9,13 +9,15 @@ Input = 110  Output = false
 */
 
 var PrimeTime = function(num) {
-  if ((num === 2) || (num % 2 === 0)) {
+  if (num === 2) {
+    return true;
+  }
+  if (num % 2 === 0) {
     return false;
   }
   for (i = 3; i < num / 2; i += 2) {
     if (num % i === 0) {
       return false;
-    } else {
     }
   }
   return true;
